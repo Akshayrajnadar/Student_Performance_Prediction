@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9;">
+    <div style="width: 80%; margin: auto; overflow: hidden; padding: 20px;">
+        <h1 style="color: #333; text-align: center;">Make a Prediction</h1>
+        <form method="POST" style="margin-top: 20px;">
+            
+            <!-- Gender Dropdown -->
+            <label for="gender" style="display: block; margin: 10px 0 5px;">Gender:</label>
+            <select id="gender" name="gender" required style="padding: 10px; width: 100%; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            
+            <!-- Ethnicity Dropdown -->
+            <label for="ethnicity" style="display: block; margin: 10px 0 5px;">Ethnicity:</label>
+            <select id="ethnicity" name="ethnicity" required style="padding: 10px; width: 100%; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="" disabled selected>Select Ethnicity</option>
+                <option value="group A">Group A</option>
+                <option value="group B">Group B</option>
+                <option value="group C">Group C</option>
+                <option value="group D">Group D</option>
+                <option value="group E">Group E</option>
+            </select>
+            
+            <!-- Parental Level of Education Dropdown -->
+            <label for="parental_level_of_education" style="display: block; margin: 10px 0 5px;">Parental Level of Education:</label>
+            <select id="parental_level_of_education" name="parental_level_of_education" required style="padding: 10px; width: 100%; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="" disabled selected>Select Education Level</option>
+                <option value="some high school">Some High School</option>
+                <option value="high school">High School</option>
+                <option value="associate's degree">Associate's Degree</option>
+                <option value="bachelor's degree">Bachelor's Degree</option>
+                <option value="master's degree">Master's Degree</option>
+            </select>
+            
+            <!-- Lunch Dropdown -->
+            <label for="lunch" style="display: block; margin: 10px 0 5px;">Lunch:</label>
+            <select id="lunch" name="lunch" required style="padding: 10px; width: 100%; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="" disabled selected>Select Lunch Type</option>
+                <option value="standard">Standard</option>
+                <option value="free/reduced">Free/Reduced</option>
+            </select>
+            
+            <!-- Test Preparation Course Dropdown -->
+            <label for="test_preparation_course" style="display: block; margin: 10px 0 5px;">Test Preparation Course:</label>
+            <select id="test_preparation_course" name="test_preparation_course" required style="padding: 10px; width: 100%; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="" disabled selected>Select Preparation Course</option>
+                <option value="none">None</option>
+                <option value="completed">Completed</option>
+            </select>
+            
+            <!-- Reading Score -->
+            <label for="reading_score" style="display: block; margin: 10px 0 5px;">Reading Score:</label>
+            <input type="number" id="reading_score" name="reading_score" step="0.01" required style="padding: 10px; width: 100%; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;">
+            
+            <!-- Writing Score -->
+            <label for="writing_score" style="display: block; margin: 10px 0 5px;">Writing Score:</label>
+            <input type="number" id="writing_score" name="writing_score" step="0.01" required style="padding: 10px; width: 100%; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;">
+            
+            <!-- Submit Button -->
+            <button type="submit" style="padding: 10px; width: 100%; background-color: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Predict</button>
+        </form>
+
+        {% if results %}
+            <div style="margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 4px; background-color: #fff;">
+                <h2 style="color: green;">Prediction Result:</h2>
+                <p>{{ results }}</p>
+            </div>
+        {% elif error %}
+            <div style="margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 4px; background-color: #fff;">
+                <h2 style="color: red;">Error:</h2>
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
